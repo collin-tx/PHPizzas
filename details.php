@@ -43,7 +43,7 @@
 
     <h2>Details</h2>
 
-    <div class="container center">
+    <div class="container center grey-text">
       <?php if($pizza): ?>
 
       <h4><?php echo htmlspecialchars($pizza['title']); ?></h4>
