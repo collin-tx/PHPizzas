@@ -1,11 +1,6 @@
 <?php 
-  // connect to database
 
-  $conn = mysqli_connect('localhost', 'collin', 'test1234', 'phpizza');
-
-  if(!$conn){
-    echo 'Connection Error: ' . mysqli_connect_error();
-  }
+  include('config/db_connect.php');
 
   // write query for all pizzas
   $sql = 'SELECT title, ingredients, id FROM pizzas ORDER BY created_at';
@@ -33,11 +28,11 @@ mysqli_close($conn);
     <div class="row">
       <?php 
         foreach($pizzas as $pizza){ ?>
-          <div class="col s6 md3">
+          <div class="col s6 m4">
             <div class="card z-depth-0">
               <div class="card-content center">
                 <h6><?php echo htmlspecialchars($pizza['title']); ?></h6>
-                <ul>
+                <ul class="grey-text">
                   <?php foreach(explode(',', $pizza['ingredients']) as $ing){ ?>
                     <li><?php echo htmlspecialchars($ing); ?></li>
                   <?php } ?>
